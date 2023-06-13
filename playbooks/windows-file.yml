@@ -1,0 +1,25 @@
+---
+- name: File management usecases
+  hosts: demo_windows_targets
+  gather_facts: false
+
+  tasks:
+    - name: "Creating temp dir in C: drive"
+    ansible.windows.win_file:
+      path: C:\ansible_temp
+      state: directory
+
+    - name: "Creating an empty file in the temp path"
+      ansible.windows.win_file:
+        path: C:\ansible_temp\test.txt
+        state: touch
+
+    - name: Remove FullControl AccessRule for IIS_IUSRS
+      ansible.windows.win_acl:
+        path: C:\ansible_temp
+        user: Administrators
+        rights: FullControl
+        type: allow
+        state: present
+        inherit: ContainerInherit, ObjectInherit
+        propagation: 'None'

@@ -1,0 +1,13 @@
+- name: Windows update using playbook with roles
+  hosts: demo_windows_targets
+  vars:
+    WINDOWS_UPDATE_OTHER_MS_PRODUCTS: true
+    WINDOWS_UPDATE_CATEGORIES:
+      - CriticalUpdates
+      - SecurityUpdates
+    WINDOWS_HOTFIXES:
+      - { name: KB2999226, url: https://download.microsoft.com/download/D/1/3/D13E3150-3BB2-4B22-9D8A-47EE2D609FFF/Windows8.1-KB2999226-x64.msu }
+      - { name: KB3035131, url: https://download.microsoft.com/download/B/2/4/B24FB08A-DEA8-4B4C-8EE4-B9F0FB180200/Windows8.1-KB3035131-x64.msu }
+
+  roles:
+    - { role: ../roles/windows_update_role }

@@ -1,0 +1,7 @@
+---
+- name: Ping connectivity to Linux targets
+  hosts: all_linux_targets
+  gather_facts: false
+  tasks:
+    - name: Ping connectivity to Linux targets
+      ping:

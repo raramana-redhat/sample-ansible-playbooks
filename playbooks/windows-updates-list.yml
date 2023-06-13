@@ -1,0 +1,18 @@
+---
+- name: Check for missing updates
+  hosts: demo_windows_targets
+  gather_facts: false
+  vars:
+    win_update_category_names:
+      - CriticalUpdates
+      - DefinitionUpdates
+      - SecurityUpdates
+      - UpdateRollups
+      - Updates
+
+  tasks:
+    - name: Check for missing updates
+      ansible.windows.win_updates:
+        category_names: "{{ win_update_category_names }}"
+        state: searched
+      register: available_updates
