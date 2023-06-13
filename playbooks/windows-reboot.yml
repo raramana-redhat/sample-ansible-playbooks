@@ -4,6 +4,25 @@
   become: true
   gather_facts: false
   tasks:
+
+    - debug:
+        msg: "Performing reboot"
+        register: rebooted
+
     - name: Reboot a Windows Machine
       ansible.windows.win_reboot:
         reboot_timeout: 360
+
+    - name: Check the Uptime of the servers
+      win_powershell: "uptime"
+      register: uptime_noted
+
+    - debug: var=uptime_noted
+
+    - name: Wait for the reboot to complete if there was a change.
+      wait_for_connection:
+        connect_timeout: 20
+        sleep: 5
+        delay: 5
+        timeout: 300
+      when: rebooted is changed
