@@ -1,3 +1,10 @@
 ---
 
 save_report_locally: no
+
+win_update_category_names:
+  - CriticalUpdates
+  - DefinitionUpdates
+  - SecurityUpdates
+  - UpdateRollups
+  - Updates

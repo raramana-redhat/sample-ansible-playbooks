@@ -1,0 +1,33 @@
+---
+- name: Installing Apps with win_chocolatey module
+  hosts: demo_windows_targets
+  become: true
+  gather_facts: false
+  tasks:
+    - name: Install git
+      chocolatey.chocolatey.win_chocolatey:
+        name: git
+        state: present
+
+    - name: Upgrade installed packages
+      chocolatey.chocolatey.win_chocolatey:
+        name: all
+        state: latest
+
+    - name: Install notepadplusplus version 6.6
+      chocolatey.chocolatey.win_chocolatey:
+        name: notepadplusplus.install
+        version: latest
+
+    # - name: Uninstall git
+    #   win_chocolatey:
+    #     name: git
+    #     state: absent
+
+    # - name: Install multiple packages
+    #   win_chocolatey:
+    #     name: '{{ item }}'
+    #     state: present
+    #   with_items:
+    #   - pscx
+    #   - windirstat

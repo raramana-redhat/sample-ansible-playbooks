@@ -1,0 +1,9 @@
+---
+- name: Reboot Windows targets
+  hosts: demo_windows_targets
+  become: true
+  gather_facts: false
+  tasks:
+    - name: Reboot a Windows Machine
+      ansible.windows.win_reboot:
+        reboot_timeout: 360

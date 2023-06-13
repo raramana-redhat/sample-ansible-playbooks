@@ -1,4 +1,10 @@
 ---
+- name: Check for missing updates
+  ansible.windows.win_updates:
+    category_names: "{{ win_update_category_names }}"
+    state: searched
+  register: available_updates
+  
 - name: save file
   template:
     src: update_report.html.j2
