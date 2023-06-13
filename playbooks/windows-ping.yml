@@ -1,6 +1,7 @@
 ---
 - name: Ping connectivity to Windows targets
   hosts: demo_windows_targets
+  become: yes
   gather_facts: false
   tasks:
     - name: Ping connectivity to Windows targets

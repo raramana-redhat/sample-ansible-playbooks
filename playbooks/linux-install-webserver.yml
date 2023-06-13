@@ -1,6 +1,7 @@
 ---
 - name: This sets up an httpd webserver
   hosts: all_linux_targets
+  become: yes
   tasks:
     - name: Install the latest version of Apache
       ansible.builtin.yum:

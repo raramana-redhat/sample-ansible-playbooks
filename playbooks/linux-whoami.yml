@@ -1,6 +1,7 @@
 ---
 - name: This is WHOAMI playbook with debug outputs
   hosts: all_linux_targets
+  become: yes
   tasks:
     - name: Get user information
       ansible.builtin.shell: /usr/bin/whoami

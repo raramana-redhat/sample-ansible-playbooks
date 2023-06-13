@@ -1,6 +1,7 @@
 ---
 - name: File management usecases
   hosts: demo_windows_targets
+  become: yes
   gather_facts: false
 
   tasks:
