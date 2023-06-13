@@ -1,7 +1,8 @@
 ---
 - name: Windows update generate report
   hosts: demo_windows_targets
-  gather_facts: no
+  become: true
+  gather_facts: false
 
   tasks:
     - name: generate html report

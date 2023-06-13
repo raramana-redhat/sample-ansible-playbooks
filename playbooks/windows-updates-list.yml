@@ -1,7 +1,7 @@
 ---
 - name: Check for missing updates
   hosts: demo_windows_targets
-  become: yes
+  become: true
   gather_facts: false
   vars:
     win_update_category_names:

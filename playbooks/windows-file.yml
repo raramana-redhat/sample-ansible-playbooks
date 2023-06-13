@@ -1,12 +1,12 @@
 ---
 - name: File management usecases
   hosts: demo_windows_targets
-  become: yes
+  become: true
   gather_facts: false
 
   tasks:
     - name: "Creating temp dir in C: drive"
-    ansible.windows.win_file:
+      ansible.windows.win_file:
       path: C:\ansible_temp
       state: directory
 

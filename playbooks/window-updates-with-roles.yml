@@ -1,6 +1,7 @@
 - name: Windows update using playbook with roles
   hosts: demo_windows_targets
-  become: yes
+  become: true
+  gather_facts: false
   vars:
     WINDOWS_UPDATE_OTHER_MS_PRODUCTS: true
     WINDOWS_UPDATE_CATEGORIES:
