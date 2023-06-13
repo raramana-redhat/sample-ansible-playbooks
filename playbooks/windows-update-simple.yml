@@ -1,5 +1,5 @@
 ---
-- name: Reboot Windows targets
+- name: Update Windows targets
   hosts: demo_windows_targets
   become: true
   gather_facts: false
