@@ -17,7 +17,8 @@
     - name: Install all updates and reboot as many times as needed
       ansible.windows.win_updates:
         category_names: '*'
-        reboot: true
+      reboot: true
+      reboot_timeout: 900
       tags: allupdatewithreboot
 
     - name: Install all security, critical, and rollup updates without a scheduled task
@@ -33,7 +34,8 @@
       ansible.windows.win_updates:
         category_names:
           - SecurityUpdates
-        reboot: true
+      reboot: true
+      reboot_timeout: 900
       tags: securityupdatewithreboot
 
     # - name: Install only particular updates based on the KB numbers

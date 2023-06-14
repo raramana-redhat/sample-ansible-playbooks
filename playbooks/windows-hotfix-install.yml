@@ -20,6 +20,7 @@
 
     - name: Reboot post hotfix applied with nonvalidated_hotfix tags
       ansible.windows.win_reboot:
+        reboot_timeout: 360
       when: hotfix_install.reboot_required
 
     - name: Install hotfix validating KB
@@ -32,6 +33,7 @@
 
     - name: Reboot post hotfix applied with validated_hotfix tags
       ansible.windows.win_reboot:
+        reboot_timeout: 360
       when: hotfix_install.reboot_required
 
     # - name: Install hotfix validating Identifier

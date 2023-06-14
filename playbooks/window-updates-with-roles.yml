@@ -3,7 +3,7 @@
   become: true
   gather_facts: false
   vars:
-    WINDOWS_UPDATE_OTHER_MS_PRODUCTS: true
+    WINDOWS_UPDATE_OTHER_MS_PRODUCTS: false
     WINDOWS_UPDATE_CATEGORIES:
       - CriticalUpdates
       - SecurityUpdates

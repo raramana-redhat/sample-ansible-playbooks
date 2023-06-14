@@ -14,4 +14,5 @@
 
     - name: Reboot if installing Web-Server feature requires it
       ansible.windows.win_reboot:
+        reboot_timeout: 360
       when: win_feature.reboot_required
